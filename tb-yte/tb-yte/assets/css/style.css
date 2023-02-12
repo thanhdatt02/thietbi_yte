@@ -50,6 +50,10 @@
 
 
 /*  2.  header css here*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400&display=swap");
+body {  
+      font-family: "Roboto", sans-serif;
+}
 
 .pos_page {
 	background: url(../img/banner/background.png);

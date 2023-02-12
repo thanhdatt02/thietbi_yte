@@ -66,7 +66,7 @@ ob_start();
                                        <!--logo start-->
                                         <div class="col-lg-3 col-md-3">
                                             <div class="logo">
-                                                <a href="index.html"><img src="assets\img\logo\logo_transparent1.png" alt=""></a>
+                                                <a href="index.php"><img src="assets\img\logo\logo_transparent1.png" alt=""></a>
                                             </div>
                                         </div>
                                         <!--logo end-->
@@ -103,25 +103,24 @@ ob_start();
                                                             </li>
                                                             <li><a href="?mod=product&act=main">SẢN PHẨM </a>
                                                                 <div class="mega_menu jewelry">
+                                                                    <?php 
+                                                                    global $list_product_cat;
+                                                                    foreach($list_product_cat as $item){
+                                                                     ?>
                                                                     <div class="mega_items jewelry">
                                                                         <ul>
-                                                                            <li><a href="?mod=product&act=product1&cat_id=1">MÁY ĐO HUYẾT ÁP</a></li>
-                                                                            <li><a href="?mod=product&act=product2&cat_id=2">MÁY ĐO ĐƯỜNG HUYẾT</a></li>
-                                                                            <li><a href="?mod=product&act=product3&cat_id=3">NHIỆT KẾ ĐIỆN TỬ</a></li>
-<!--                                                                            <li><a href="shop-sidebar.html">CHĂM SÓC SỨC KHỎE</a></li>
-                                                                            <li><a href="shop-sidebar-list.html">THIẾT BỊ GIA ĐÌNH</a></li>
-                                                                            <li><a href="single-product-video.html">ĐỒ DÙNG MẸ VÀ BÉ</a></li>
-                                                                            <li><a href="single-product-video.html">THỰC PHẨM DINH DƯỠNG</a></li>
-                                                                            <li><a href="single-product-video.html">ĐỒ THỂ THAO</a></li>-->
-                                                                            <!--<li><a href="single-product-gallery.html">Product Details Gallery</a></li>-->
+                                                                            <li><a href="<?php echo "?mod=product&act=product1&cat_id={$item['cat_id']}"?>"><?php echo $item['cat_title'] ?></a></li>
                                                                         </ul>
                                                                     </div>
+                                                                    <?php
+                                                                    }
+                                                                    ?>
                                                                 </div>  
                                                             </li>
                                                          
-                                                            <li><a href="?mod=page&act=main">GIỚI THIỆU</a></li>
+                                                            <li><a href="?mod=page&act=about">GIỚI THIỆU</a></li>
                                                             <li><a href="?mod=page&act=detail">LIÊN HỆ</a></li>
-                                                            <li><a href="?mod=post&act=detail">HỢP TÁC</a></li>
+                                                           
                                                         </ul>
                                                     </nav>
                                                 </div>

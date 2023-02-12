@@ -94,6 +94,8 @@ ob_start();
                                                                 <div class="mega_menu jewelry">
                                                                     <div class="mega_items jewelry">
                                                                         <ul>
+                                                                            <li><a href="?mod=product&act=add_cat">THÊM DANH MỤC</a></li>
+                                                                            <li><a href="?mod=product&act=cat">DANH SÁCH DANH MỤC</a></li>
                                                                             <li><a href="?mod=product&act=add">THÊM SẢN PHẨM</a></li>
                                                                             <li><a href="?mod=product&act=update">CHỈNH SỬA SẢN PHẨM</a></li>                   
                                                                         </ul>
@@ -101,8 +103,8 @@ ob_start();
                                                                 </div> 
                                                             </li>
                                                             <li><a href="?mod=cart&act=main">QUẢN LÝ ĐƠN HÀNG</a></li>
-                                                            <li><a href="">DOANH THU</a></li>
-                                                            <li><a href="contact.html">HỢP TÁC</a></li>
+                                                            <li><a href="?mod=home&act=statistic">DOANH THU</a></li>
+<!--                                                            <li><a href="contact.html">HỢP TÁC</a></li>-->
                                                         </ul>
                                                     </nav>
                                                 </div>

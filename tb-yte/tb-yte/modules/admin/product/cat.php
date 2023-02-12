@@ -2,16 +2,7 @@
 get_header_admin();
 ?>
 <?php
-#xuất dữ liệu
-$sql = "SELECT * FROM `dhd_users`";
-$result = mysqli_query($conn, $sql);
-$list_users = array();
-while ($row = mysqli_fetch_assoc($result)){
-    $list_users[] = $row;
-}
-foreach ($list_users as $user){
-    $user['url_delete'] = "?mod=users&act=delete&id={$user['user_id']}";
-}
+global $list_product_cat;
 ?>
 <style>
     #content {
@@ -58,33 +49,25 @@ foreach ($list_users as $user){
     }
 </style>
 <div id="content">
-    <h1>Danh sách thành viên</h1>
+    <h1>Danh sách danh mục</h1>
     <table class="table_data">
         <thead>
             <tr>
                 <td>STT</td>
                 <td>id</td>
-                <td>Họ và tên</td><!-- comment -->
-                <td>Tên đăng nhập</td><!-- comment -->
-                <td>Email</td>
-                <td>Thao tác</td>
+                <td>Tên danh mục</td><!-- comment -->
             </tr>
         </thead>
         <tbody>
             <?php
                 $dem = 0;
-                foreach ($list_users as $user){
+                foreach ($list_product_cat as $user){
                     $dem++;
             ?>
             <tr>
                 <td><?php echo $dem ?></td>
-                <td><?php echo $user['user_id'] ?></td>
-                <td><?php echo $user['fullname'] ?></td><!-- comment -->
-                <td><?php echo $user['username'] ?></td><!-- comment -->
-                <td><?php echo $user['email'] ?></td>
-                <td><div class="edit">
-                    <a href="<?php echo "?mod=users&act=delete&id={$user['user_id']}" ?>">Xóa</a>
-                    </div></td>
+                <td><?php echo $user['cat_id'] ?></td>
+                <td><?php echo $user['cat_title'] ?></td><!-- comment -->
             </tr>
             <?php
                 }

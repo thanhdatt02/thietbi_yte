@@ -24,7 +24,7 @@ if (isset($_POST['btn_update'])) {
         $sql = "UPDATE `dhd_product` SET `product_name` = '{$product_name}', `price` = '{$price}', `desc` = '{$desc}', `thumb` = '{$thumb}' WHERE `id` = {$id}";
         if(mysqli_query($conn, $sql))
 //            redirect("?mod=log&act=login");
-            redirect ("?mod=admin_users&act=product");
+            echo "<script>window.location.href='?mod=product&act=main';alert('Thay đổi thông tin thành công!');</script>";
         } else {
             $error['update'] = "chỉnh sửa không thành công";
         }

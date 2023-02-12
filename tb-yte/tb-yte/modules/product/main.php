@@ -60,11 +60,10 @@ $list_item = $list_product;
                                                 <!--<h3 class="product_title"><a href="single-product.html">Curabitur sodales</a></h3>-->
                                             </div>
                                             <div class="product_info">
-                                                <ul>
-                                                    <li><a href="#" title=" Add to Wishlist ">Yêu thích</a></li>
-                                                    <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">Thông tin chi tiết</a></li>
-                                                </ul>
-                                            </div>
+                                                        <ul>
+                                                            <li><a href="<?php echo "?mod=product&act=detail&id={$item['id']}" ?>">Thông tin chi tiết</a></li>
+                                                        </ul>
+                                                    </div>
                                         </div>
                                     </div>
                                     <?php

@@ -52,7 +52,7 @@ $list_buy = get_list_buy();
                                             <td class="product_name"><a href=""><?php echo $item['product_name'] ?></a></td>
                                             <td class="product-price"><?php echo number_format($item['price']) . ' VND' ?></td>
                                             <td class="product_quantity"><input min="0" max="100" value="<?php echo $item['qty'] ?>" type="number" name="qty[<?php echo $item['id'] ?>]"></td>
-                                            <td class="product_total"><?php echo number_format($item['total']) ?></td>
+                                            <td class="product_total"><?php echo number_format($item['total']). ' VND'; ?></td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>

@@ -61,8 +61,8 @@ $list_item = $list_product;
                                             </div>
                                             <div class="product_info">
                                                 <ul>
-                                                    <li><a href="#" title=" Add to Wishlist ">Yêu thích</a></li>
-                                                    <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">Thông tin chi tiết</a></li>
+                                                    
+                                                    <li><a href="<?php echo "?mod=product&act=detail&id={$item['id']}"?>">Thông tin chi tiết</a></li>
                                                 </ul>
                                             </div>
                                         </div>

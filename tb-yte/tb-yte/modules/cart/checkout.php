@@ -48,7 +48,8 @@ if (is_login()) {
                 $_SESSION['cart']['buy'] = array();
                 unset($_SESSION['info']);
                 $_SESSION['cart']['info'] = array();
-                redirect("?mod=home&act=main");
+                 echo "<script>window.location.href='?mod=home&act=main';alert('Đặt hàng thành công!');</script>";
+//                redirect("?mod=home&act=main");
             }
         } else {
             $error['acount'] = "đặt hàng không thành công";
@@ -158,19 +159,10 @@ if (is_login()) {
                         </table>
                     </div>
                     <div class="payment_method">
-                        <div class="panel-default">
-                            <input id="payment" name="payment-method" type="radio" data-target="createp_account" value="online">
-                            <label for="payment" data-toggle="collapse" data-target="#method" aria-controls="method">Thanh toán banking</label>
-                        </div>
-                        <div class="panel-default">
-                            <input id="payment_defult" name="payment_method" type="radio" data-target="createp_account" value="cod">
-                            <label for="payment_defult" data-toggle="collapse" data-target="#collapsedefult" aria-controls="collapsedefult">Thanh toán khi nhận hàng</label>
-                        </div>
                         <div class="order_button">
                             <button type="submit" name="btn_checkout">Thanh toán</button>
                         </div>
                     </div>
-
                 </div>
 
             </div>

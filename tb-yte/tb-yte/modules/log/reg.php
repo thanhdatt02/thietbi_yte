@@ -1,7 +1,6 @@
 <?php
 get_header();
 ?>
-
 <?php
 if (isset($_POST['btn_reg'])) {
     $error = array();
@@ -36,7 +35,8 @@ if (isset($_POST['btn_reg'])) {
         $sql = "INSERT INTO `dhd_users` (`username`, `fullname`, `password`, `email`)"
                 ."VALUES ('{$username}', '{$fullname}', '{$password}', '{$email}')";
         if(mysqli_query($conn, $sql))
-            redirect("?mod=log&act=login");
+            echo "<script>window.location.href='?mod=log&act=login';alert('Đăng kí thành công!');</script>";
+//            redirect("?mod=log&act=login");
         } else {
             $error['acount'] = "đăng kí không thành công";
         }

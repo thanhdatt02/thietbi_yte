@@ -23,14 +23,16 @@
         if (check_admin($username, $password)) {
             $_SESSION['is_login'] = true;
             $_SESSION['user_login'] = $username;
-            redirect("?mod=home&act=admin");
+            echo "<script>window.location.href='?mod=home&act=admin';alert('Đăng nhập thành công!');</script>";
+            // redirect("?mod=home&act=admin");
         } else if (check_login($username, $password)) {
             //lưu trữ phiên đăng nhập
             $_SESSION['is_login'] = true;
             $_SESSION['user_login'] = $username;
-            redirect("?mod=home&act=main");
+            echo "<script>window.location.href='?mod=home&act=main';alert('Đăng nhập thành công!');</script>";
+            // redirect("?mod=home&act=main");
         } else {
-            $error['acount'] = "đăng nhập thất bại";
+            $error['acount'] = "Đăng nhập thất bại";
         }
     }
 }
@@ -98,8 +100,7 @@ get_header();
                     <!--pos page inner end-->
                 </div> 
             </div>
-            <!--pos page end-->
-            
+            <!--pos page end-->     
 <?php
 get_footer();
 ?>

@@ -5,7 +5,10 @@ get_header();
 
 $cat_id = (int)$_GET['cat_id'];
 // lấy thông tin danh mục
-$info_cat = get_info_cat($cat_id - 1);
+$sql = "SELECT * FROM `dhd_category` where `cat_id` = '{$cat_id}'";
+$result = mysqli_query($conn, $sql);
+$cat = mysqli_fetch_assoc($result);
+
 #lấy danh sách sản phẩm
 $list_item = get_list_product_by_cat($cat_id);
 ?>
@@ -42,7 +45,7 @@ $list_item = get_list_product_by_cat($cat_id);
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="large" role="tabpanel">
             <div class="section-head">
-                        <h4 class="section_title"><?php echo $info_cat['cat_title']; ?> </h4>
+                        <h4 class="section_title"><?php echo $cat['cat_title']; ?> </h4>
                     </div>
                 <div class="row">
                     <?php 
@@ -70,8 +73,7 @@ $list_item = get_list_product_by_cat($cat_id);
                             </div>
                             <div class="product_info">
                                 <ul>
-                                    <li><a href="#" title=" Add to Wishlist ">Yêu thích</a></li>
-                                    <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">Thông tin chi tiết</a></li>
+                                    <li><a href="<?php echo "?mod=product&act=detail&id={$item['id']}" ?>">Thông tin chi tiết</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -86,7 +88,7 @@ $list_item = get_list_product_by_cat($cat_id);
                     
 
     <!--pagination style start-->
-    <div class="pagination_style shop_page">
+<!--    <div class="pagination_style shop_page">
         <div class="item_page">
             <form action="#">
                 <label for="page_select">xem</label>
@@ -107,7 +109,7 @@ $list_item = get_list_product_by_cat($cat_id);
                 <li>»</li>
             </ul>
         </div>
-    </div>
+    </div>-->
     <!--pagination style end-->
 </div>
 <!--pos home section end-->

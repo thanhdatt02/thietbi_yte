@@ -31,6 +31,6 @@ if (is_login()) {
 if(file_exists($path))
     require $path;
 else
-    require '404.php';
+    require $path;
 ?>
        

@@ -24,25 +24,7 @@ $list_cat = $list_product_cat;
                             </div>
                         </div>
                     </div>
-                    <div class="single_slider" style="background-image: url(assets/img/slider/slider2.jpg)">
-                        <div class="slider_content">
-                            <div class="slider_content_inner">
-                                <h1>Đảm bảo</h1>
-                                <p>Chất lượng - Hiệu quả- Lan tỏa niềm tin</p>
-                                </p>
-                                <a href="#">shop now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single_slider" style="background-image: url(assets/img/slider/slider3.jpg)">
-                        <div class="slider_content">
-                            <div class="slider_content_inner">
-                                <h1>Best Collection</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
-                                <a href="#">shop now</a>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
             <!--banner slider start-->
@@ -87,8 +69,8 @@ $list_cat = $list_product_cat;
                                             </div>
                                             <div class="product_info">
                                                 <ul>
-                                                    <li><a href="#" title=" Add to Wishlist ">Yêu thích</a></li>
-                                                    <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">Thông tin chi tiết</a></li>
+                                                    
+                                                    <li><a href="<?php echo "?mod=product&act=detail&id={$item['id']}"?>">Thông tin chi tiết</a></li>
                                                 </ul>
                                             </div>
                                         </div>

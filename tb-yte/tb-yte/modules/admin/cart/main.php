@@ -1,5 +1,3 @@
-
-
 <?php
 get_header_admin();
 ?>
@@ -18,7 +16,7 @@ while ($row = mysqli_fetch_assoc($result)){
 <style>
     #content {
     background: white;
-    width: 700px;
+    width: 800px;
     border-radius: 3px;
     padding: 30px 20px 20px 20px;
     margin: 0px auto;
@@ -29,7 +27,7 @@ while ($row = mysqli_fetch_assoc($result)){
         font-size: 24px;
         text-align: center;
     }.table_data{
-        width: 650px;
+        width: 700px;
         padding: 0px 0px 100px;   
     }
     .table_data, tr, td {
@@ -48,6 +46,15 @@ while ($row = mysqli_fetch_assoc($result)){
     }
     .table_data tr td a:hover{
         color: red;
+    }
+    .edit{
+        width: 50px;
+        height: 30px;
+        background-color: #258210;
+    }
+    .edit a{
+        text-align: center;
+        color: whitesmoke;
     }
 </style>
 <div id="content">
@@ -82,10 +89,17 @@ while ($row = mysqli_fetch_assoc($result)){
                             echo "Đang chuẩn bị";
                             else if($order['status'] == 2)
                                     echo "Đang giao";
-                                 else echo "Đã giao";
+                                 else if($order['status'] == 3)
+                                     echo "Đã nhận hàng";
+                                     else
+                                         echo "Đã hủy";
                                  ?> </td>
-               <td><a href="">sửa</a></td>
-               <td><a href="<?php echo"?mod=cart&act=detail&id={$order['id']};"?>">chi tiết</a></td>
+               <td><div class="edit">
+                   <a href="<?php echo"?mod=cart&act=update&id={$order['id']}";?>">Sửa</a>
+                   </div></td>
+                   <td><div class="edit">
+                       <a href="<?php echo"?mod=cart&act=detail&id={$order['id']}";?>">Xem</a>
+                       </div></td>
             </tr>
              
             <?php

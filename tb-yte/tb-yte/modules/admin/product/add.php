@@ -46,7 +46,7 @@ if (isset($_POST['btn_pro'])) {
                 ."VALUES ('{$cat_id}', '{$product_name}', '{$price}', '{$code}', '{$desc}', '{$thumb}', '{$product_show}')";
         if(mysqli_query($conn, $sql))
 //            redirect("?mod=log&act=login");
-                echo "thành công";
+               echo "<script>window.location.href='?mod=product&act=main';alert('Thêm sản phẩm thành công!');</script>";
         } else {
             $error['acount'] = "đăng kí không thành công";
         }

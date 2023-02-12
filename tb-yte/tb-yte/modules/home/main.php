@@ -25,8 +25,6 @@ $list_cat = $list_product_cat;
         <script src="assets\js\vendor\modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-        <!-- Add your site or application content here -->
-
         <!--pos page start-->
         <div class="pos_page">
             <div class="container">
@@ -63,14 +61,13 @@ $list_cat = $list_product_cat;
                             </div> 
                         </div> 
                         <!--header top end-->
-
                         <!--header middel--> 
                         <div class="header_middel">
                             <div class="row align-items-center">
                                 <!--logo start-->
                                 <div class="col-lg-3 col-md-3">
                                     <div class="logo">
-                                        <a href="index.html"><img src="assets\img\logo\logo_transparent1.png" alt=""></a>
+                                        <a href="index.php"><img src="assets\img\logo\logo_transparent1.png" alt=""></a>
                                     </div>
                                 </div>
                                 <!--logo end-->
@@ -106,21 +103,24 @@ $list_cat = $list_product_cat;
                                                     </li>
                                                     <li><a href="?mod=product&act=main">SẢN PHẨM </a>
                                                         <div class="mega_menu jewelry">
-                                                            <div class="mega_items jewelry">
-                                                                <ul>
-                                                                    <li><a href="?mod=product&act=product1&cat_id=1">MÁY ĐO HUYẾT ÁP</a></li>
-                                                                    <li><a href="?mod=product&act=product2&cat_id=2">MÁY ĐO ĐƯỜNG HUYẾT</a></li>
-                                                                    <li><a href="?mod=product&act=product3&cat_id=3">NHIỆT KẾ ĐIỆN TỬ</a></li>
-                                                                    
-                                                                    <!--<li><a href="single-product-gallery.html">Product Details Gallery</a></li>-->
-                                                                </ul>
-                                                            </div>
+                                                            <?php 
+                                                                  
+                                                                    foreach($list_cat as $item){
+                                                                     ?>
+                                                                    <div class="mega_items jewelry">
+                                                                        <ul>
+                                                                            <li><a href="<?php echo "?mod=product&act=product1&cat_id={$item['cat_id']}"?>"><?php echo $item['cat_title'] ?></a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <?php
+                                                                    }
+                                                                    ?>
+
                                                         </div>  
                                                     </li>
-                                                    
+
                                                     <li><a href="?mod=page&act=main">GIỚI THIỆU</a></li>
                                                     <li><a href="?mod=page&act=detail">LIÊN HỆ</a></li>
-                                                    <li><a href="?mod=post&act=detail">HỢP TÁC</a></li>
                                                 </ul>
                                             </nav>
                                         </div>
@@ -144,26 +144,26 @@ $list_cat = $list_product_cat;
                                                     <!--<h1>Women's Fashion</h1>-->
                                                     <p>SỨC KHỎE VÀ HẠNH PHÚC CỦA BẠN</p>
                                                     <p>LÀ NIỀM VUI VÀ TRÁCH NHIỆM CỦA CHÚNG TÔI</p>
-                                                    <!--<a href="#">shop now</a>-->
+                                                    <a href="?mod=product&act=main">Mua ngay</a>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="single_slider" style="background-image: url(assets/img/slider/slider2.jpg)">
+                                        <div class="single_slider" style="background-image: url(assets/img/slider/slide2.jpg)">
                                             <div class="slider_content">
                                                 <div class="slider_content_inner">
                                                     <h1>Đảm bảo</h1>
                                                     <p>Chất lượng - Hiệu quả- Lan tỏa niềm tin</p>
                                                     </p>
-                                                    <a href="#">shop now</a>
+                                                    <a href="?mod=product&act=main">mua ngay</a>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="single_slider" style="background-image: url(assets/img/slider/slider3.jpg)">
+                                        <div class="single_slider" style="background-image: url(assets/img/slider/slide3.jpg)">
                                             <div class="slider_content">
                                                 <div class="slider_content_inner">
-                                                    <h1>Best Collection</h1>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
-                                                    <a href="#">shop now</a>
+                                                    <h1>Sự lựa chọn tốt nhất</h1>
+                                                    <p>Còn chần chờ gì nữa mà không thêm ngay vào giỏ hàng</p>
+                                                    <a href="?mod=product&act=main">mua ngay</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -181,46 +181,46 @@ $list_cat = $list_product_cat;
                                             <h3><?php echo $cat['cat_title'] ?></h3>
                                         </div>
                                         <div class="row">
+                                            <?php
+                                            #lấy danh sách sản phẩm
+                                            $list_item = get_list_product_by_cat($cat['cat_id']);
+                                            ?>
+                                            <div class="product_active owl-carousel">
                                                 <?php
-                                                #lấy danh sách sản phẩm
-                                                $list_item = get_list_product_by_cat($cat['cat_id']);
-                                                ?>
-                                                <div class="product_active owl-carousel">
-                                                    <?php
-                                                    if (!empty($list_item)) {
-                                                        ?>
-                                                        <?php
-                                                        foreach ($list_item as $item) {
-                                                            ?>
-                                                <div class="col-lg-3">
-                                                    <div class="single_product">
-                                                        <div class="product_thumb">
-                                                            <a href="<?php echo $item['url'] ?>"><img src="<?php echo "assets/img/product/{$item['thumb']}" ?>" alt=""></a>
-                                                            <div class="img_icone">
-                                                                <img src="assets\img\cart\span-new.png" alt="">
-                                                            </div>
-                                                            <div class="product_action">
-                                                                <a href="<?php echo "?mod=cart&act=add&id={$item['id']}" ?>"> <i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="product_content">
-                                                            <span class="product_price_goc"><?php echo $item['price'] ?></span>
-                                                            <span class="product_price_dis">3.900.000 VND</span>
-                                                            <h3 class="product_name"><?php echo $item['product_name'] ?></h3>
-                                                            <!--<h3 class="product_title"><a href="single-product-video.html">Curabitur sodales</a></h3>-->
-                                                        </div>
-                                                        <div class="product_info">
-                                                            <ul>
-                                                                <li><a href="#" title=" Add to Wishlist ">Yêu thích</a></li>
-                                                                <li><a href="<?php echo $item['url'] ?>" data-toggle="modal" data-target="#modal_box" title="Quick view">Thông tin chi tiết</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                                <?php }
-                                                    }
+                                                if (!empty($list_item)) {
                                                     ?>
+                                                    <?php
+                                                    foreach ($list_item as $item) {
+                                                        ?>
+                                                        <div class="col-lg-3">
+                                                            <div class="single_product">
+                                                                <div class="product_thumb">
+                                                                    <a href="<?php echo $item['url'] ?>"><img src="<?php echo "assets/img/product/{$item['thumb']}" ?>" alt=""></a>
+                                                                    <div class="img_icone">
+                                                                        <img src="assets\img\cart\span-new.png" alt="">
+                                                                    </div>
+                                                                    <div class="product_action">
+                                                                        <a href="<?php echo "?mod=cart&act=add&id={$item['id']}" ?>"> <i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="product_content">
+                                                                    <span class="product_price_goc"><?php echo number_format($item['price']).' VND' ?></span>
+                                                                    <span class="product_price_dis">3.900.000 VND</span>
+                                                                    <h3 class="product_name"><?php echo $item['product_name'] ?></h3>
+                                                                    <!--<h3 class="product_title"><a href="single-product-video.html">Curabitur sodales</a></h3>-->
+                                                                </div>
+                                                                <div class="product_info">
+                                                                    <ul>
+                                                                        <li><a href="<?php echo "?mod=product&act=detail&id={$item['id']}" ?>">Thông tin chi tiết</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
                                             </div>
                                         </div>
                                         <?php
